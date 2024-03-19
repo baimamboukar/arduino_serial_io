@@ -11,8 +11,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-        body: Center(
-      child: Text('Serial Arduino'),
-    ));
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Text("Serial Arduino"),
+          ],
+        ),
+      ),
+    );
   }
 }
