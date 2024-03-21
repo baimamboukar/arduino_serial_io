@@ -24,14 +24,18 @@ mixin _$SerialState {
     required TResult Function(bool permission) bluetoothPermissionsSuccess,
     required TResult Function() scanning,
     required TResult Function(String error) scanningError,
-    required TResult Function(List<ScanResult> devices) scanningSuccess,
+    required TResult Function(List<BluetoothDiscoveryResult> devices)
+        scanningSuccess,
     required TResult Function() connecting,
     required TResult Function(String error) connectingError,
-    required TResult Function(BluetoothDevice device) connectingSuccess,
+    required TResult Function(
+            BluetoothDevice device, BluetoothConnection connection)
+        connectingSuccess,
     required TResult Function(BluetoothDevice device) disconnected,
     required TResult Function() transfering,
     required TResult Function(String error) transferingError,
     required TResult Function(String message) transferingSuccess,
+    required TResult Function(Uint8List data) dataReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,14 +46,16 @@ mixin _$SerialState {
     TResult? Function(bool permission)? bluetoothPermissionsSuccess,
     TResult? Function()? scanning,
     TResult? Function(String error)? scanningError,
-    TResult? Function(List<ScanResult> devices)? scanningSuccess,
+    TResult? Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult? Function()? connecting,
     TResult? Function(String error)? connectingError,
-    TResult? Function(BluetoothDevice device)? connectingSuccess,
+    TResult? Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult? Function(BluetoothDevice device)? disconnected,
     TResult? Function()? transfering,
     TResult? Function(String error)? transferingError,
     TResult? Function(String message)? transferingSuccess,
+    TResult? Function(Uint8List data)? dataReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,14 +66,16 @@ mixin _$SerialState {
     TResult Function(bool permission)? bluetoothPermissionsSuccess,
     TResult Function()? scanning,
     TResult Function(String error)? scanningError,
-    TResult Function(List<ScanResult> devices)? scanningSuccess,
+    TResult Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult Function()? connecting,
     TResult Function(String error)? connectingError,
-    TResult Function(BluetoothDevice device)? connectingSuccess,
+    TResult Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult Function(BluetoothDevice device)? disconnected,
     TResult Function()? transfering,
     TResult Function(String error)? transferingError,
     TResult Function(String message)? transferingSuccess,
+    TResult Function(Uint8List data)? dataReceived,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -89,6 +97,7 @@ mixin _$SerialState {
     required TResult Function(_Transfering value) transfering,
     required TResult Function(_TransferingError value) transferingError,
     required TResult Function(_TransferingSuccess value) transferingSuccess,
+    required TResult Function(_DataReceived value) dataReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -109,6 +118,7 @@ mixin _$SerialState {
     TResult? Function(_Transfering value)? transfering,
     TResult? Function(_TransferingError value)? transferingError,
     TResult? Function(_TransferingSuccess value)? transferingSuccess,
+    TResult? Function(_DataReceived value)? dataReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -129,6 +139,7 @@ mixin _$SerialState {
     TResult Function(_Transfering value)? transfering,
     TResult Function(_TransferingError value)? transferingError,
     TResult Function(_TransferingSuccess value)? transferingSuccess,
+    TResult Function(_DataReceived value)? dataReceived,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -196,14 +207,18 @@ class _$InitialImpl implements _Initial {
     required TResult Function(bool permission) bluetoothPermissionsSuccess,
     required TResult Function() scanning,
     required TResult Function(String error) scanningError,
-    required TResult Function(List<ScanResult> devices) scanningSuccess,
+    required TResult Function(List<BluetoothDiscoveryResult> devices)
+        scanningSuccess,
     required TResult Function() connecting,
     required TResult Function(String error) connectingError,
-    required TResult Function(BluetoothDevice device) connectingSuccess,
+    required TResult Function(
+            BluetoothDevice device, BluetoothConnection connection)
+        connectingSuccess,
     required TResult Function(BluetoothDevice device) disconnected,
     required TResult Function() transfering,
     required TResult Function(String error) transferingError,
     required TResult Function(String message) transferingSuccess,
+    required TResult Function(Uint8List data) dataReceived,
   }) {
     return initial();
   }
@@ -217,14 +232,16 @@ class _$InitialImpl implements _Initial {
     TResult? Function(bool permission)? bluetoothPermissionsSuccess,
     TResult? Function()? scanning,
     TResult? Function(String error)? scanningError,
-    TResult? Function(List<ScanResult> devices)? scanningSuccess,
+    TResult? Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult? Function()? connecting,
     TResult? Function(String error)? connectingError,
-    TResult? Function(BluetoothDevice device)? connectingSuccess,
+    TResult? Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult? Function(BluetoothDevice device)? disconnected,
     TResult? Function()? transfering,
     TResult? Function(String error)? transferingError,
     TResult? Function(String message)? transferingSuccess,
+    TResult? Function(Uint8List data)? dataReceived,
   }) {
     return initial?.call();
   }
@@ -238,14 +255,16 @@ class _$InitialImpl implements _Initial {
     TResult Function(bool permission)? bluetoothPermissionsSuccess,
     TResult Function()? scanning,
     TResult Function(String error)? scanningError,
-    TResult Function(List<ScanResult> devices)? scanningSuccess,
+    TResult Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult Function()? connecting,
     TResult Function(String error)? connectingError,
-    TResult Function(BluetoothDevice device)? connectingSuccess,
+    TResult Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult Function(BluetoothDevice device)? disconnected,
     TResult Function()? transfering,
     TResult Function(String error)? transferingError,
     TResult Function(String message)? transferingSuccess,
+    TResult Function(Uint8List data)? dataReceived,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -273,6 +292,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Transfering value) transfering,
     required TResult Function(_TransferingError value) transferingError,
     required TResult Function(_TransferingSuccess value) transferingSuccess,
+    required TResult Function(_DataReceived value) dataReceived,
   }) {
     return initial(this);
   }
@@ -296,6 +316,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Transfering value)? transfering,
     TResult? Function(_TransferingError value)? transferingError,
     TResult? Function(_TransferingSuccess value)? transferingSuccess,
+    TResult? Function(_DataReceived value)? dataReceived,
   }) {
     return initial?.call(this);
   }
@@ -319,6 +340,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Transfering value)? transfering,
     TResult Function(_TransferingError value)? transferingError,
     TResult Function(_TransferingSuccess value)? transferingSuccess,
+    TResult Function(_DataReceived value)? dataReceived,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -377,14 +399,18 @@ class _$BluetoothPermissionsImpl implements _BluetoothPermissions {
     required TResult Function(bool permission) bluetoothPermissionsSuccess,
     required TResult Function() scanning,
     required TResult Function(String error) scanningError,
-    required TResult Function(List<ScanResult> devices) scanningSuccess,
+    required TResult Function(List<BluetoothDiscoveryResult> devices)
+        scanningSuccess,
     required TResult Function() connecting,
     required TResult Function(String error) connectingError,
-    required TResult Function(BluetoothDevice device) connectingSuccess,
+    required TResult Function(
+            BluetoothDevice device, BluetoothConnection connection)
+        connectingSuccess,
     required TResult Function(BluetoothDevice device) disconnected,
     required TResult Function() transfering,
     required TResult Function(String error) transferingError,
     required TResult Function(String message) transferingSuccess,
+    required TResult Function(Uint8List data) dataReceived,
   }) {
     return bluetoothPermissions();
   }
@@ -398,14 +424,16 @@ class _$BluetoothPermissionsImpl implements _BluetoothPermissions {
     TResult? Function(bool permission)? bluetoothPermissionsSuccess,
     TResult? Function()? scanning,
     TResult? Function(String error)? scanningError,
-    TResult? Function(List<ScanResult> devices)? scanningSuccess,
+    TResult? Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult? Function()? connecting,
     TResult? Function(String error)? connectingError,
-    TResult? Function(BluetoothDevice device)? connectingSuccess,
+    TResult? Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult? Function(BluetoothDevice device)? disconnected,
     TResult? Function()? transfering,
     TResult? Function(String error)? transferingError,
     TResult? Function(String message)? transferingSuccess,
+    TResult? Function(Uint8List data)? dataReceived,
   }) {
     return bluetoothPermissions?.call();
   }
@@ -419,14 +447,16 @@ class _$BluetoothPermissionsImpl implements _BluetoothPermissions {
     TResult Function(bool permission)? bluetoothPermissionsSuccess,
     TResult Function()? scanning,
     TResult Function(String error)? scanningError,
-    TResult Function(List<ScanResult> devices)? scanningSuccess,
+    TResult Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult Function()? connecting,
     TResult Function(String error)? connectingError,
-    TResult Function(BluetoothDevice device)? connectingSuccess,
+    TResult Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult Function(BluetoothDevice device)? disconnected,
     TResult Function()? transfering,
     TResult Function(String error)? transferingError,
     TResult Function(String message)? transferingSuccess,
+    TResult Function(Uint8List data)? dataReceived,
     required TResult orElse(),
   }) {
     if (bluetoothPermissions != null) {
@@ -454,6 +484,7 @@ class _$BluetoothPermissionsImpl implements _BluetoothPermissions {
     required TResult Function(_Transfering value) transfering,
     required TResult Function(_TransferingError value) transferingError,
     required TResult Function(_TransferingSuccess value) transferingSuccess,
+    required TResult Function(_DataReceived value) dataReceived,
   }) {
     return bluetoothPermissions(this);
   }
@@ -477,6 +508,7 @@ class _$BluetoothPermissionsImpl implements _BluetoothPermissions {
     TResult? Function(_Transfering value)? transfering,
     TResult? Function(_TransferingError value)? transferingError,
     TResult? Function(_TransferingSuccess value)? transferingSuccess,
+    TResult? Function(_DataReceived value)? dataReceived,
   }) {
     return bluetoothPermissions?.call(this);
   }
@@ -500,6 +532,7 @@ class _$BluetoothPermissionsImpl implements _BluetoothPermissions {
     TResult Function(_Transfering value)? transfering,
     TResult Function(_TransferingError value)? transferingError,
     TResult Function(_TransferingSuccess value)? transferingSuccess,
+    TResult Function(_DataReceived value)? dataReceived,
     required TResult orElse(),
   }) {
     if (bluetoothPermissions != null) {
@@ -586,14 +619,18 @@ class _$BluetoothPermissionsErrorImpl implements _BluetoothPermissionsError {
     required TResult Function(bool permission) bluetoothPermissionsSuccess,
     required TResult Function() scanning,
     required TResult Function(String error) scanningError,
-    required TResult Function(List<ScanResult> devices) scanningSuccess,
+    required TResult Function(List<BluetoothDiscoveryResult> devices)
+        scanningSuccess,
     required TResult Function() connecting,
     required TResult Function(String error) connectingError,
-    required TResult Function(BluetoothDevice device) connectingSuccess,
+    required TResult Function(
+            BluetoothDevice device, BluetoothConnection connection)
+        connectingSuccess,
     required TResult Function(BluetoothDevice device) disconnected,
     required TResult Function() transfering,
     required TResult Function(String error) transferingError,
     required TResult Function(String message) transferingSuccess,
+    required TResult Function(Uint8List data) dataReceived,
   }) {
     return bluetoothPermissionsError(error);
   }
@@ -607,14 +644,16 @@ class _$BluetoothPermissionsErrorImpl implements _BluetoothPermissionsError {
     TResult? Function(bool permission)? bluetoothPermissionsSuccess,
     TResult? Function()? scanning,
     TResult? Function(String error)? scanningError,
-    TResult? Function(List<ScanResult> devices)? scanningSuccess,
+    TResult? Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult? Function()? connecting,
     TResult? Function(String error)? connectingError,
-    TResult? Function(BluetoothDevice device)? connectingSuccess,
+    TResult? Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult? Function(BluetoothDevice device)? disconnected,
     TResult? Function()? transfering,
     TResult? Function(String error)? transferingError,
     TResult? Function(String message)? transferingSuccess,
+    TResult? Function(Uint8List data)? dataReceived,
   }) {
     return bluetoothPermissionsError?.call(error);
   }
@@ -628,14 +667,16 @@ class _$BluetoothPermissionsErrorImpl implements _BluetoothPermissionsError {
     TResult Function(bool permission)? bluetoothPermissionsSuccess,
     TResult Function()? scanning,
     TResult Function(String error)? scanningError,
-    TResult Function(List<ScanResult> devices)? scanningSuccess,
+    TResult Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult Function()? connecting,
     TResult Function(String error)? connectingError,
-    TResult Function(BluetoothDevice device)? connectingSuccess,
+    TResult Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult Function(BluetoothDevice device)? disconnected,
     TResult Function()? transfering,
     TResult Function(String error)? transferingError,
     TResult Function(String message)? transferingSuccess,
+    TResult Function(Uint8List data)? dataReceived,
     required TResult orElse(),
   }) {
     if (bluetoothPermissionsError != null) {
@@ -663,6 +704,7 @@ class _$BluetoothPermissionsErrorImpl implements _BluetoothPermissionsError {
     required TResult Function(_Transfering value) transfering,
     required TResult Function(_TransferingError value) transferingError,
     required TResult Function(_TransferingSuccess value) transferingSuccess,
+    required TResult Function(_DataReceived value) dataReceived,
   }) {
     return bluetoothPermissionsError(this);
   }
@@ -686,6 +728,7 @@ class _$BluetoothPermissionsErrorImpl implements _BluetoothPermissionsError {
     TResult? Function(_Transfering value)? transfering,
     TResult? Function(_TransferingError value)? transferingError,
     TResult? Function(_TransferingSuccess value)? transferingSuccess,
+    TResult? Function(_DataReceived value)? dataReceived,
   }) {
     return bluetoothPermissionsError?.call(this);
   }
@@ -709,6 +752,7 @@ class _$BluetoothPermissionsErrorImpl implements _BluetoothPermissionsError {
     TResult Function(_Transfering value)? transfering,
     TResult Function(_TransferingError value)? transferingError,
     TResult Function(_TransferingSuccess value)? transferingSuccess,
+    TResult Function(_DataReceived value)? dataReceived,
     required TResult orElse(),
   }) {
     if (bluetoothPermissionsError != null) {
@@ -803,14 +847,18 @@ class _$BluetoothPermissionsSuccessImpl
     required TResult Function(bool permission) bluetoothPermissionsSuccess,
     required TResult Function() scanning,
     required TResult Function(String error) scanningError,
-    required TResult Function(List<ScanResult> devices) scanningSuccess,
+    required TResult Function(List<BluetoothDiscoveryResult> devices)
+        scanningSuccess,
     required TResult Function() connecting,
     required TResult Function(String error) connectingError,
-    required TResult Function(BluetoothDevice device) connectingSuccess,
+    required TResult Function(
+            BluetoothDevice device, BluetoothConnection connection)
+        connectingSuccess,
     required TResult Function(BluetoothDevice device) disconnected,
     required TResult Function() transfering,
     required TResult Function(String error) transferingError,
     required TResult Function(String message) transferingSuccess,
+    required TResult Function(Uint8List data) dataReceived,
   }) {
     return bluetoothPermissionsSuccess(permission);
   }
@@ -824,14 +872,16 @@ class _$BluetoothPermissionsSuccessImpl
     TResult? Function(bool permission)? bluetoothPermissionsSuccess,
     TResult? Function()? scanning,
     TResult? Function(String error)? scanningError,
-    TResult? Function(List<ScanResult> devices)? scanningSuccess,
+    TResult? Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult? Function()? connecting,
     TResult? Function(String error)? connectingError,
-    TResult? Function(BluetoothDevice device)? connectingSuccess,
+    TResult? Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult? Function(BluetoothDevice device)? disconnected,
     TResult? Function()? transfering,
     TResult? Function(String error)? transferingError,
     TResult? Function(String message)? transferingSuccess,
+    TResult? Function(Uint8List data)? dataReceived,
   }) {
     return bluetoothPermissionsSuccess?.call(permission);
   }
@@ -845,14 +895,16 @@ class _$BluetoothPermissionsSuccessImpl
     TResult Function(bool permission)? bluetoothPermissionsSuccess,
     TResult Function()? scanning,
     TResult Function(String error)? scanningError,
-    TResult Function(List<ScanResult> devices)? scanningSuccess,
+    TResult Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult Function()? connecting,
     TResult Function(String error)? connectingError,
-    TResult Function(BluetoothDevice device)? connectingSuccess,
+    TResult Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult Function(BluetoothDevice device)? disconnected,
     TResult Function()? transfering,
     TResult Function(String error)? transferingError,
     TResult Function(String message)? transferingSuccess,
+    TResult Function(Uint8List data)? dataReceived,
     required TResult orElse(),
   }) {
     if (bluetoothPermissionsSuccess != null) {
@@ -880,6 +932,7 @@ class _$BluetoothPermissionsSuccessImpl
     required TResult Function(_Transfering value) transfering,
     required TResult Function(_TransferingError value) transferingError,
     required TResult Function(_TransferingSuccess value) transferingSuccess,
+    required TResult Function(_DataReceived value) dataReceived,
   }) {
     return bluetoothPermissionsSuccess(this);
   }
@@ -903,6 +956,7 @@ class _$BluetoothPermissionsSuccessImpl
     TResult? Function(_Transfering value)? transfering,
     TResult? Function(_TransferingError value)? transferingError,
     TResult? Function(_TransferingSuccess value)? transferingSuccess,
+    TResult? Function(_DataReceived value)? dataReceived,
   }) {
     return bluetoothPermissionsSuccess?.call(this);
   }
@@ -926,6 +980,7 @@ class _$BluetoothPermissionsSuccessImpl
     TResult Function(_Transfering value)? transfering,
     TResult Function(_TransferingError value)? transferingError,
     TResult Function(_TransferingSuccess value)? transferingSuccess,
+    TResult Function(_DataReceived value)? dataReceived,
     required TResult orElse(),
   }) {
     if (bluetoothPermissionsSuccess != null) {
@@ -989,14 +1044,18 @@ class _$ScanningImpl implements _Scanning {
     required TResult Function(bool permission) bluetoothPermissionsSuccess,
     required TResult Function() scanning,
     required TResult Function(String error) scanningError,
-    required TResult Function(List<ScanResult> devices) scanningSuccess,
+    required TResult Function(List<BluetoothDiscoveryResult> devices)
+        scanningSuccess,
     required TResult Function() connecting,
     required TResult Function(String error) connectingError,
-    required TResult Function(BluetoothDevice device) connectingSuccess,
+    required TResult Function(
+            BluetoothDevice device, BluetoothConnection connection)
+        connectingSuccess,
     required TResult Function(BluetoothDevice device) disconnected,
     required TResult Function() transfering,
     required TResult Function(String error) transferingError,
     required TResult Function(String message) transferingSuccess,
+    required TResult Function(Uint8List data) dataReceived,
   }) {
     return scanning();
   }
@@ -1010,14 +1069,16 @@ class _$ScanningImpl implements _Scanning {
     TResult? Function(bool permission)? bluetoothPermissionsSuccess,
     TResult? Function()? scanning,
     TResult? Function(String error)? scanningError,
-    TResult? Function(List<ScanResult> devices)? scanningSuccess,
+    TResult? Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult? Function()? connecting,
     TResult? Function(String error)? connectingError,
-    TResult? Function(BluetoothDevice device)? connectingSuccess,
+    TResult? Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult? Function(BluetoothDevice device)? disconnected,
     TResult? Function()? transfering,
     TResult? Function(String error)? transferingError,
     TResult? Function(String message)? transferingSuccess,
+    TResult? Function(Uint8List data)? dataReceived,
   }) {
     return scanning?.call();
   }
@@ -1031,14 +1092,16 @@ class _$ScanningImpl implements _Scanning {
     TResult Function(bool permission)? bluetoothPermissionsSuccess,
     TResult Function()? scanning,
     TResult Function(String error)? scanningError,
-    TResult Function(List<ScanResult> devices)? scanningSuccess,
+    TResult Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult Function()? connecting,
     TResult Function(String error)? connectingError,
-    TResult Function(BluetoothDevice device)? connectingSuccess,
+    TResult Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult Function(BluetoothDevice device)? disconnected,
     TResult Function()? transfering,
     TResult Function(String error)? transferingError,
     TResult Function(String message)? transferingSuccess,
+    TResult Function(Uint8List data)? dataReceived,
     required TResult orElse(),
   }) {
     if (scanning != null) {
@@ -1066,6 +1129,7 @@ class _$ScanningImpl implements _Scanning {
     required TResult Function(_Transfering value) transfering,
     required TResult Function(_TransferingError value) transferingError,
     required TResult Function(_TransferingSuccess value) transferingSuccess,
+    required TResult Function(_DataReceived value) dataReceived,
   }) {
     return scanning(this);
   }
@@ -1089,6 +1153,7 @@ class _$ScanningImpl implements _Scanning {
     TResult? Function(_Transfering value)? transfering,
     TResult? Function(_TransferingError value)? transferingError,
     TResult? Function(_TransferingSuccess value)? transferingSuccess,
+    TResult? Function(_DataReceived value)? dataReceived,
   }) {
     return scanning?.call(this);
   }
@@ -1112,6 +1177,7 @@ class _$ScanningImpl implements _Scanning {
     TResult Function(_Transfering value)? transfering,
     TResult Function(_TransferingError value)? transferingError,
     TResult Function(_TransferingSuccess value)? transferingSuccess,
+    TResult Function(_DataReceived value)? dataReceived,
     required TResult orElse(),
   }) {
     if (scanning != null) {
@@ -1195,14 +1261,18 @@ class _$ScanningErrorImpl implements _ScanningError {
     required TResult Function(bool permission) bluetoothPermissionsSuccess,
     required TResult Function() scanning,
     required TResult Function(String error) scanningError,
-    required TResult Function(List<ScanResult> devices) scanningSuccess,
+    required TResult Function(List<BluetoothDiscoveryResult> devices)
+        scanningSuccess,
     required TResult Function() connecting,
     required TResult Function(String error) connectingError,
-    required TResult Function(BluetoothDevice device) connectingSuccess,
+    required TResult Function(
+            BluetoothDevice device, BluetoothConnection connection)
+        connectingSuccess,
     required TResult Function(BluetoothDevice device) disconnected,
     required TResult Function() transfering,
     required TResult Function(String error) transferingError,
     required TResult Function(String message) transferingSuccess,
+    required TResult Function(Uint8List data) dataReceived,
   }) {
     return scanningError(error);
   }
@@ -1216,14 +1286,16 @@ class _$ScanningErrorImpl implements _ScanningError {
     TResult? Function(bool permission)? bluetoothPermissionsSuccess,
     TResult? Function()? scanning,
     TResult? Function(String error)? scanningError,
-    TResult? Function(List<ScanResult> devices)? scanningSuccess,
+    TResult? Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult? Function()? connecting,
     TResult? Function(String error)? connectingError,
-    TResult? Function(BluetoothDevice device)? connectingSuccess,
+    TResult? Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult? Function(BluetoothDevice device)? disconnected,
     TResult? Function()? transfering,
     TResult? Function(String error)? transferingError,
     TResult? Function(String message)? transferingSuccess,
+    TResult? Function(Uint8List data)? dataReceived,
   }) {
     return scanningError?.call(error);
   }
@@ -1237,14 +1309,16 @@ class _$ScanningErrorImpl implements _ScanningError {
     TResult Function(bool permission)? bluetoothPermissionsSuccess,
     TResult Function()? scanning,
     TResult Function(String error)? scanningError,
-    TResult Function(List<ScanResult> devices)? scanningSuccess,
+    TResult Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult Function()? connecting,
     TResult Function(String error)? connectingError,
-    TResult Function(BluetoothDevice device)? connectingSuccess,
+    TResult Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult Function(BluetoothDevice device)? disconnected,
     TResult Function()? transfering,
     TResult Function(String error)? transferingError,
     TResult Function(String message)? transferingSuccess,
+    TResult Function(Uint8List data)? dataReceived,
     required TResult orElse(),
   }) {
     if (scanningError != null) {
@@ -1272,6 +1346,7 @@ class _$ScanningErrorImpl implements _ScanningError {
     required TResult Function(_Transfering value) transfering,
     required TResult Function(_TransferingError value) transferingError,
     required TResult Function(_TransferingSuccess value) transferingSuccess,
+    required TResult Function(_DataReceived value) dataReceived,
   }) {
     return scanningError(this);
   }
@@ -1295,6 +1370,7 @@ class _$ScanningErrorImpl implements _ScanningError {
     TResult? Function(_Transfering value)? transfering,
     TResult? Function(_TransferingError value)? transferingError,
     TResult? Function(_TransferingSuccess value)? transferingSuccess,
+    TResult? Function(_DataReceived value)? dataReceived,
   }) {
     return scanningError?.call(this);
   }
@@ -1318,6 +1394,7 @@ class _$ScanningErrorImpl implements _ScanningError {
     TResult Function(_Transfering value)? transfering,
     TResult Function(_TransferingError value)? transferingError,
     TResult Function(_TransferingSuccess value)? transferingSuccess,
+    TResult Function(_DataReceived value)? dataReceived,
     required TResult orElse(),
   }) {
     if (scanningError != null) {
@@ -1342,7 +1419,7 @@ abstract class _$$ScanningSuccessImplCopyWith<$Res> {
           $Res Function(_$ScanningSuccessImpl) then) =
       __$$ScanningSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<ScanResult> devices});
+  $Res call({List<BluetoothDiscoveryResult> devices});
 }
 
 /// @nodoc
@@ -1362,7 +1439,7 @@ class __$$ScanningSuccessImplCopyWithImpl<$Res>
       null == devices
           ? _value._devices
           : devices // ignore: cast_nullable_to_non_nullable
-              as List<ScanResult>,
+              as List<BluetoothDiscoveryResult>,
     ));
   }
 }
@@ -1370,12 +1447,12 @@ class __$$ScanningSuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ScanningSuccessImpl implements _ScanningSuccess {
-  const _$ScanningSuccessImpl(final List<ScanResult> devices)
+  const _$ScanningSuccessImpl(final List<BluetoothDiscoveryResult> devices)
       : _devices = devices;
 
-  final List<ScanResult> _devices;
+  final List<BluetoothDiscoveryResult> _devices;
   @override
-  List<ScanResult> get devices {
+  List<BluetoothDiscoveryResult> get devices {
     if (_devices is EqualUnmodifiableListView) return _devices;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_devices);
@@ -1414,14 +1491,18 @@ class _$ScanningSuccessImpl implements _ScanningSuccess {
     required TResult Function(bool permission) bluetoothPermissionsSuccess,
     required TResult Function() scanning,
     required TResult Function(String error) scanningError,
-    required TResult Function(List<ScanResult> devices) scanningSuccess,
+    required TResult Function(List<BluetoothDiscoveryResult> devices)
+        scanningSuccess,
     required TResult Function() connecting,
     required TResult Function(String error) connectingError,
-    required TResult Function(BluetoothDevice device) connectingSuccess,
+    required TResult Function(
+            BluetoothDevice device, BluetoothConnection connection)
+        connectingSuccess,
     required TResult Function(BluetoothDevice device) disconnected,
     required TResult Function() transfering,
     required TResult Function(String error) transferingError,
     required TResult Function(String message) transferingSuccess,
+    required TResult Function(Uint8List data) dataReceived,
   }) {
     return scanningSuccess(devices);
   }
@@ -1435,14 +1516,16 @@ class _$ScanningSuccessImpl implements _ScanningSuccess {
     TResult? Function(bool permission)? bluetoothPermissionsSuccess,
     TResult? Function()? scanning,
     TResult? Function(String error)? scanningError,
-    TResult? Function(List<ScanResult> devices)? scanningSuccess,
+    TResult? Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult? Function()? connecting,
     TResult? Function(String error)? connectingError,
-    TResult? Function(BluetoothDevice device)? connectingSuccess,
+    TResult? Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult? Function(BluetoothDevice device)? disconnected,
     TResult? Function()? transfering,
     TResult? Function(String error)? transferingError,
     TResult? Function(String message)? transferingSuccess,
+    TResult? Function(Uint8List data)? dataReceived,
   }) {
     return scanningSuccess?.call(devices);
   }
@@ -1456,14 +1539,16 @@ class _$ScanningSuccessImpl implements _ScanningSuccess {
     TResult Function(bool permission)? bluetoothPermissionsSuccess,
     TResult Function()? scanning,
     TResult Function(String error)? scanningError,
-    TResult Function(List<ScanResult> devices)? scanningSuccess,
+    TResult Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult Function()? connecting,
     TResult Function(String error)? connectingError,
-    TResult Function(BluetoothDevice device)? connectingSuccess,
+    TResult Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult Function(BluetoothDevice device)? disconnected,
     TResult Function()? transfering,
     TResult Function(String error)? transferingError,
     TResult Function(String message)? transferingSuccess,
+    TResult Function(Uint8List data)? dataReceived,
     required TResult orElse(),
   }) {
     if (scanningSuccess != null) {
@@ -1491,6 +1576,7 @@ class _$ScanningSuccessImpl implements _ScanningSuccess {
     required TResult Function(_Transfering value) transfering,
     required TResult Function(_TransferingError value) transferingError,
     required TResult Function(_TransferingSuccess value) transferingSuccess,
+    required TResult Function(_DataReceived value) dataReceived,
   }) {
     return scanningSuccess(this);
   }
@@ -1514,6 +1600,7 @@ class _$ScanningSuccessImpl implements _ScanningSuccess {
     TResult? Function(_Transfering value)? transfering,
     TResult? Function(_TransferingError value)? transferingError,
     TResult? Function(_TransferingSuccess value)? transferingSuccess,
+    TResult? Function(_DataReceived value)? dataReceived,
   }) {
     return scanningSuccess?.call(this);
   }
@@ -1537,6 +1624,7 @@ class _$ScanningSuccessImpl implements _ScanningSuccess {
     TResult Function(_Transfering value)? transfering,
     TResult Function(_TransferingError value)? transferingError,
     TResult Function(_TransferingSuccess value)? transferingSuccess,
+    TResult Function(_DataReceived value)? dataReceived,
     required TResult orElse(),
   }) {
     if (scanningSuccess != null) {
@@ -1547,10 +1635,10 @@ class _$ScanningSuccessImpl implements _ScanningSuccess {
 }
 
 abstract class _ScanningSuccess implements SerialState {
-  const factory _ScanningSuccess(final List<ScanResult> devices) =
+  const factory _ScanningSuccess(final List<BluetoothDiscoveryResult> devices) =
       _$ScanningSuccessImpl;
 
-  List<ScanResult> get devices;
+  List<BluetoothDiscoveryResult> get devices;
   @JsonKey(ignore: true)
   _$$ScanningSuccessImplCopyWith<_$ScanningSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1600,14 +1688,18 @@ class _$ConnectingImpl implements _Connecting {
     required TResult Function(bool permission) bluetoothPermissionsSuccess,
     required TResult Function() scanning,
     required TResult Function(String error) scanningError,
-    required TResult Function(List<ScanResult> devices) scanningSuccess,
+    required TResult Function(List<BluetoothDiscoveryResult> devices)
+        scanningSuccess,
     required TResult Function() connecting,
     required TResult Function(String error) connectingError,
-    required TResult Function(BluetoothDevice device) connectingSuccess,
+    required TResult Function(
+            BluetoothDevice device, BluetoothConnection connection)
+        connectingSuccess,
     required TResult Function(BluetoothDevice device) disconnected,
     required TResult Function() transfering,
     required TResult Function(String error) transferingError,
     required TResult Function(String message) transferingSuccess,
+    required TResult Function(Uint8List data) dataReceived,
   }) {
     return connecting();
   }
@@ -1621,14 +1713,16 @@ class _$ConnectingImpl implements _Connecting {
     TResult? Function(bool permission)? bluetoothPermissionsSuccess,
     TResult? Function()? scanning,
     TResult? Function(String error)? scanningError,
-    TResult? Function(List<ScanResult> devices)? scanningSuccess,
+    TResult? Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult? Function()? connecting,
     TResult? Function(String error)? connectingError,
-    TResult? Function(BluetoothDevice device)? connectingSuccess,
+    TResult? Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult? Function(BluetoothDevice device)? disconnected,
     TResult? Function()? transfering,
     TResult? Function(String error)? transferingError,
     TResult? Function(String message)? transferingSuccess,
+    TResult? Function(Uint8List data)? dataReceived,
   }) {
     return connecting?.call();
   }
@@ -1642,14 +1736,16 @@ class _$ConnectingImpl implements _Connecting {
     TResult Function(bool permission)? bluetoothPermissionsSuccess,
     TResult Function()? scanning,
     TResult Function(String error)? scanningError,
-    TResult Function(List<ScanResult> devices)? scanningSuccess,
+    TResult Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult Function()? connecting,
     TResult Function(String error)? connectingError,
-    TResult Function(BluetoothDevice device)? connectingSuccess,
+    TResult Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult Function(BluetoothDevice device)? disconnected,
     TResult Function()? transfering,
     TResult Function(String error)? transferingError,
     TResult Function(String message)? transferingSuccess,
+    TResult Function(Uint8List data)? dataReceived,
     required TResult orElse(),
   }) {
     if (connecting != null) {
@@ -1677,6 +1773,7 @@ class _$ConnectingImpl implements _Connecting {
     required TResult Function(_Transfering value) transfering,
     required TResult Function(_TransferingError value) transferingError,
     required TResult Function(_TransferingSuccess value) transferingSuccess,
+    required TResult Function(_DataReceived value) dataReceived,
   }) {
     return connecting(this);
   }
@@ -1700,6 +1797,7 @@ class _$ConnectingImpl implements _Connecting {
     TResult? Function(_Transfering value)? transfering,
     TResult? Function(_TransferingError value)? transferingError,
     TResult? Function(_TransferingSuccess value)? transferingSuccess,
+    TResult? Function(_DataReceived value)? dataReceived,
   }) {
     return connecting?.call(this);
   }
@@ -1723,6 +1821,7 @@ class _$ConnectingImpl implements _Connecting {
     TResult Function(_Transfering value)? transfering,
     TResult Function(_TransferingError value)? transferingError,
     TResult Function(_TransferingSuccess value)? transferingSuccess,
+    TResult Function(_DataReceived value)? dataReceived,
     required TResult orElse(),
   }) {
     if (connecting != null) {
@@ -1807,14 +1906,18 @@ class _$ConnectingErrorImpl implements _ConnectingError {
     required TResult Function(bool permission) bluetoothPermissionsSuccess,
     required TResult Function() scanning,
     required TResult Function(String error) scanningError,
-    required TResult Function(List<ScanResult> devices) scanningSuccess,
+    required TResult Function(List<BluetoothDiscoveryResult> devices)
+        scanningSuccess,
     required TResult Function() connecting,
     required TResult Function(String error) connectingError,
-    required TResult Function(BluetoothDevice device) connectingSuccess,
+    required TResult Function(
+            BluetoothDevice device, BluetoothConnection connection)
+        connectingSuccess,
     required TResult Function(BluetoothDevice device) disconnected,
     required TResult Function() transfering,
     required TResult Function(String error) transferingError,
     required TResult Function(String message) transferingSuccess,
+    required TResult Function(Uint8List data) dataReceived,
   }) {
     return connectingError(error);
   }
@@ -1828,14 +1931,16 @@ class _$ConnectingErrorImpl implements _ConnectingError {
     TResult? Function(bool permission)? bluetoothPermissionsSuccess,
     TResult? Function()? scanning,
     TResult? Function(String error)? scanningError,
-    TResult? Function(List<ScanResult> devices)? scanningSuccess,
+    TResult? Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult? Function()? connecting,
     TResult? Function(String error)? connectingError,
-    TResult? Function(BluetoothDevice device)? connectingSuccess,
+    TResult? Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult? Function(BluetoothDevice device)? disconnected,
     TResult? Function()? transfering,
     TResult? Function(String error)? transferingError,
     TResult? Function(String message)? transferingSuccess,
+    TResult? Function(Uint8List data)? dataReceived,
   }) {
     return connectingError?.call(error);
   }
@@ -1849,14 +1954,16 @@ class _$ConnectingErrorImpl implements _ConnectingError {
     TResult Function(bool permission)? bluetoothPermissionsSuccess,
     TResult Function()? scanning,
     TResult Function(String error)? scanningError,
-    TResult Function(List<ScanResult> devices)? scanningSuccess,
+    TResult Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult Function()? connecting,
     TResult Function(String error)? connectingError,
-    TResult Function(BluetoothDevice device)? connectingSuccess,
+    TResult Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult Function(BluetoothDevice device)? disconnected,
     TResult Function()? transfering,
     TResult Function(String error)? transferingError,
     TResult Function(String message)? transferingSuccess,
+    TResult Function(Uint8List data)? dataReceived,
     required TResult orElse(),
   }) {
     if (connectingError != null) {
@@ -1884,6 +1991,7 @@ class _$ConnectingErrorImpl implements _ConnectingError {
     required TResult Function(_Transfering value) transfering,
     required TResult Function(_TransferingError value) transferingError,
     required TResult Function(_TransferingSuccess value) transferingSuccess,
+    required TResult Function(_DataReceived value) dataReceived,
   }) {
     return connectingError(this);
   }
@@ -1907,6 +2015,7 @@ class _$ConnectingErrorImpl implements _ConnectingError {
     TResult? Function(_Transfering value)? transfering,
     TResult? Function(_TransferingError value)? transferingError,
     TResult? Function(_TransferingSuccess value)? transferingSuccess,
+    TResult? Function(_DataReceived value)? dataReceived,
   }) {
     return connectingError?.call(this);
   }
@@ -1930,6 +2039,7 @@ class _$ConnectingErrorImpl implements _ConnectingError {
     TResult Function(_Transfering value)? transfering,
     TResult Function(_TransferingError value)? transferingError,
     TResult Function(_TransferingSuccess value)? transferingSuccess,
+    TResult Function(_DataReceived value)? dataReceived,
     required TResult orElse(),
   }) {
     if (connectingError != null) {
@@ -1954,7 +2064,7 @@ abstract class _$$ConnectingSuccessImplCopyWith<$Res> {
           $Res Function(_$ConnectingSuccessImpl) then) =
       __$$ConnectingSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({BluetoothDevice device});
+  $Res call({BluetoothDevice device, BluetoothConnection connection});
 }
 
 /// @nodoc
@@ -1969,12 +2079,17 @@ class __$$ConnectingSuccessImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? device = null,
+    Object? connection = null,
   }) {
     return _then(_$ConnectingSuccessImpl(
       null == device
           ? _value.device
           : device // ignore: cast_nullable_to_non_nullable
               as BluetoothDevice,
+      null == connection
+          ? _value.connection
+          : connection // ignore: cast_nullable_to_non_nullable
+              as BluetoothConnection,
     ));
   }
 }
@@ -1982,14 +2097,16 @@ class __$$ConnectingSuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ConnectingSuccessImpl implements _ConnectingSuccess {
-  const _$ConnectingSuccessImpl(this.device);
+  const _$ConnectingSuccessImpl(this.device, this.connection);
 
   @override
   final BluetoothDevice device;
+  @override
+  final BluetoothConnection connection;
 
   @override
   String toString() {
-    return 'SerialState.connectingSuccess(device: $device)';
+    return 'SerialState.connectingSuccess(device: $device, connection: $connection)';
   }
 
   @override
@@ -1997,11 +2114,13 @@ class _$ConnectingSuccessImpl implements _ConnectingSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ConnectingSuccessImpl &&
-            (identical(other.device, device) || other.device == device));
+            (identical(other.device, device) || other.device == device) &&
+            (identical(other.connection, connection) ||
+                other.connection == connection));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, device);
+  int get hashCode => Object.hash(runtimeType, device, connection);
 
   @JsonKey(ignore: true)
   @override
@@ -2019,16 +2138,20 @@ class _$ConnectingSuccessImpl implements _ConnectingSuccess {
     required TResult Function(bool permission) bluetoothPermissionsSuccess,
     required TResult Function() scanning,
     required TResult Function(String error) scanningError,
-    required TResult Function(List<ScanResult> devices) scanningSuccess,
+    required TResult Function(List<BluetoothDiscoveryResult> devices)
+        scanningSuccess,
     required TResult Function() connecting,
     required TResult Function(String error) connectingError,
-    required TResult Function(BluetoothDevice device) connectingSuccess,
+    required TResult Function(
+            BluetoothDevice device, BluetoothConnection connection)
+        connectingSuccess,
     required TResult Function(BluetoothDevice device) disconnected,
     required TResult Function() transfering,
     required TResult Function(String error) transferingError,
     required TResult Function(String message) transferingSuccess,
+    required TResult Function(Uint8List data) dataReceived,
   }) {
-    return connectingSuccess(device);
+    return connectingSuccess(device, connection);
   }
 
   @override
@@ -2040,16 +2163,18 @@ class _$ConnectingSuccessImpl implements _ConnectingSuccess {
     TResult? Function(bool permission)? bluetoothPermissionsSuccess,
     TResult? Function()? scanning,
     TResult? Function(String error)? scanningError,
-    TResult? Function(List<ScanResult> devices)? scanningSuccess,
+    TResult? Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult? Function()? connecting,
     TResult? Function(String error)? connectingError,
-    TResult? Function(BluetoothDevice device)? connectingSuccess,
+    TResult? Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult? Function(BluetoothDevice device)? disconnected,
     TResult? Function()? transfering,
     TResult? Function(String error)? transferingError,
     TResult? Function(String message)? transferingSuccess,
+    TResult? Function(Uint8List data)? dataReceived,
   }) {
-    return connectingSuccess?.call(device);
+    return connectingSuccess?.call(device, connection);
   }
 
   @override
@@ -2061,18 +2186,20 @@ class _$ConnectingSuccessImpl implements _ConnectingSuccess {
     TResult Function(bool permission)? bluetoothPermissionsSuccess,
     TResult Function()? scanning,
     TResult Function(String error)? scanningError,
-    TResult Function(List<ScanResult> devices)? scanningSuccess,
+    TResult Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult Function()? connecting,
     TResult Function(String error)? connectingError,
-    TResult Function(BluetoothDevice device)? connectingSuccess,
+    TResult Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult Function(BluetoothDevice device)? disconnected,
     TResult Function()? transfering,
     TResult Function(String error)? transferingError,
     TResult Function(String message)? transferingSuccess,
+    TResult Function(Uint8List data)? dataReceived,
     required TResult orElse(),
   }) {
     if (connectingSuccess != null) {
-      return connectingSuccess(device);
+      return connectingSuccess(device, connection);
     }
     return orElse();
   }
@@ -2096,6 +2223,7 @@ class _$ConnectingSuccessImpl implements _ConnectingSuccess {
     required TResult Function(_Transfering value) transfering,
     required TResult Function(_TransferingError value) transferingError,
     required TResult Function(_TransferingSuccess value) transferingSuccess,
+    required TResult Function(_DataReceived value) dataReceived,
   }) {
     return connectingSuccess(this);
   }
@@ -2119,6 +2247,7 @@ class _$ConnectingSuccessImpl implements _ConnectingSuccess {
     TResult? Function(_Transfering value)? transfering,
     TResult? Function(_TransferingError value)? transferingError,
     TResult? Function(_TransferingSuccess value)? transferingSuccess,
+    TResult? Function(_DataReceived value)? dataReceived,
   }) {
     return connectingSuccess?.call(this);
   }
@@ -2142,6 +2271,7 @@ class _$ConnectingSuccessImpl implements _ConnectingSuccess {
     TResult Function(_Transfering value)? transfering,
     TResult Function(_TransferingError value)? transferingError,
     TResult Function(_TransferingSuccess value)? transferingSuccess,
+    TResult Function(_DataReceived value)? dataReceived,
     required TResult orElse(),
   }) {
     if (connectingSuccess != null) {
@@ -2152,10 +2282,12 @@ class _$ConnectingSuccessImpl implements _ConnectingSuccess {
 }
 
 abstract class _ConnectingSuccess implements SerialState {
-  const factory _ConnectingSuccess(final BluetoothDevice device) =
+  const factory _ConnectingSuccess(
+          final BluetoothDevice device, final BluetoothConnection connection) =
       _$ConnectingSuccessImpl;
 
   BluetoothDevice get device;
+  BluetoothConnection get connection;
   @JsonKey(ignore: true)
   _$$ConnectingSuccessImplCopyWith<_$ConnectingSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -2231,14 +2363,18 @@ class _$DisconnectedImpl implements _Disconnected {
     required TResult Function(bool permission) bluetoothPermissionsSuccess,
     required TResult Function() scanning,
     required TResult Function(String error) scanningError,
-    required TResult Function(List<ScanResult> devices) scanningSuccess,
+    required TResult Function(List<BluetoothDiscoveryResult> devices)
+        scanningSuccess,
     required TResult Function() connecting,
     required TResult Function(String error) connectingError,
-    required TResult Function(BluetoothDevice device) connectingSuccess,
+    required TResult Function(
+            BluetoothDevice device, BluetoothConnection connection)
+        connectingSuccess,
     required TResult Function(BluetoothDevice device) disconnected,
     required TResult Function() transfering,
     required TResult Function(String error) transferingError,
     required TResult Function(String message) transferingSuccess,
+    required TResult Function(Uint8List data) dataReceived,
   }) {
     return disconnected(device);
   }
@@ -2252,14 +2388,16 @@ class _$DisconnectedImpl implements _Disconnected {
     TResult? Function(bool permission)? bluetoothPermissionsSuccess,
     TResult? Function()? scanning,
     TResult? Function(String error)? scanningError,
-    TResult? Function(List<ScanResult> devices)? scanningSuccess,
+    TResult? Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult? Function()? connecting,
     TResult? Function(String error)? connectingError,
-    TResult? Function(BluetoothDevice device)? connectingSuccess,
+    TResult? Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult? Function(BluetoothDevice device)? disconnected,
     TResult? Function()? transfering,
     TResult? Function(String error)? transferingError,
     TResult? Function(String message)? transferingSuccess,
+    TResult? Function(Uint8List data)? dataReceived,
   }) {
     return disconnected?.call(device);
   }
@@ -2273,14 +2411,16 @@ class _$DisconnectedImpl implements _Disconnected {
     TResult Function(bool permission)? bluetoothPermissionsSuccess,
     TResult Function()? scanning,
     TResult Function(String error)? scanningError,
-    TResult Function(List<ScanResult> devices)? scanningSuccess,
+    TResult Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult Function()? connecting,
     TResult Function(String error)? connectingError,
-    TResult Function(BluetoothDevice device)? connectingSuccess,
+    TResult Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult Function(BluetoothDevice device)? disconnected,
     TResult Function()? transfering,
     TResult Function(String error)? transferingError,
     TResult Function(String message)? transferingSuccess,
+    TResult Function(Uint8List data)? dataReceived,
     required TResult orElse(),
   }) {
     if (disconnected != null) {
@@ -2308,6 +2448,7 @@ class _$DisconnectedImpl implements _Disconnected {
     required TResult Function(_Transfering value) transfering,
     required TResult Function(_TransferingError value) transferingError,
     required TResult Function(_TransferingSuccess value) transferingSuccess,
+    required TResult Function(_DataReceived value) dataReceived,
   }) {
     return disconnected(this);
   }
@@ -2331,6 +2472,7 @@ class _$DisconnectedImpl implements _Disconnected {
     TResult? Function(_Transfering value)? transfering,
     TResult? Function(_TransferingError value)? transferingError,
     TResult? Function(_TransferingSuccess value)? transferingSuccess,
+    TResult? Function(_DataReceived value)? dataReceived,
   }) {
     return disconnected?.call(this);
   }
@@ -2354,6 +2496,7 @@ class _$DisconnectedImpl implements _Disconnected {
     TResult Function(_Transfering value)? transfering,
     TResult Function(_TransferingError value)? transferingError,
     TResult Function(_TransferingSuccess value)? transferingSuccess,
+    TResult Function(_DataReceived value)? dataReceived,
     required TResult orElse(),
   }) {
     if (disconnected != null) {
@@ -2417,14 +2560,18 @@ class _$TransferingImpl implements _Transfering {
     required TResult Function(bool permission) bluetoothPermissionsSuccess,
     required TResult Function() scanning,
     required TResult Function(String error) scanningError,
-    required TResult Function(List<ScanResult> devices) scanningSuccess,
+    required TResult Function(List<BluetoothDiscoveryResult> devices)
+        scanningSuccess,
     required TResult Function() connecting,
     required TResult Function(String error) connectingError,
-    required TResult Function(BluetoothDevice device) connectingSuccess,
+    required TResult Function(
+            BluetoothDevice device, BluetoothConnection connection)
+        connectingSuccess,
     required TResult Function(BluetoothDevice device) disconnected,
     required TResult Function() transfering,
     required TResult Function(String error) transferingError,
     required TResult Function(String message) transferingSuccess,
+    required TResult Function(Uint8List data) dataReceived,
   }) {
     return transfering();
   }
@@ -2438,14 +2585,16 @@ class _$TransferingImpl implements _Transfering {
     TResult? Function(bool permission)? bluetoothPermissionsSuccess,
     TResult? Function()? scanning,
     TResult? Function(String error)? scanningError,
-    TResult? Function(List<ScanResult> devices)? scanningSuccess,
+    TResult? Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult? Function()? connecting,
     TResult? Function(String error)? connectingError,
-    TResult? Function(BluetoothDevice device)? connectingSuccess,
+    TResult? Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult? Function(BluetoothDevice device)? disconnected,
     TResult? Function()? transfering,
     TResult? Function(String error)? transferingError,
     TResult? Function(String message)? transferingSuccess,
+    TResult? Function(Uint8List data)? dataReceived,
   }) {
     return transfering?.call();
   }
@@ -2459,14 +2608,16 @@ class _$TransferingImpl implements _Transfering {
     TResult Function(bool permission)? bluetoothPermissionsSuccess,
     TResult Function()? scanning,
     TResult Function(String error)? scanningError,
-    TResult Function(List<ScanResult> devices)? scanningSuccess,
+    TResult Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult Function()? connecting,
     TResult Function(String error)? connectingError,
-    TResult Function(BluetoothDevice device)? connectingSuccess,
+    TResult Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult Function(BluetoothDevice device)? disconnected,
     TResult Function()? transfering,
     TResult Function(String error)? transferingError,
     TResult Function(String message)? transferingSuccess,
+    TResult Function(Uint8List data)? dataReceived,
     required TResult orElse(),
   }) {
     if (transfering != null) {
@@ -2494,6 +2645,7 @@ class _$TransferingImpl implements _Transfering {
     required TResult Function(_Transfering value) transfering,
     required TResult Function(_TransferingError value) transferingError,
     required TResult Function(_TransferingSuccess value) transferingSuccess,
+    required TResult Function(_DataReceived value) dataReceived,
   }) {
     return transfering(this);
   }
@@ -2517,6 +2669,7 @@ class _$TransferingImpl implements _Transfering {
     TResult? Function(_Transfering value)? transfering,
     TResult? Function(_TransferingError value)? transferingError,
     TResult? Function(_TransferingSuccess value)? transferingSuccess,
+    TResult? Function(_DataReceived value)? dataReceived,
   }) {
     return transfering?.call(this);
   }
@@ -2540,6 +2693,7 @@ class _$TransferingImpl implements _Transfering {
     TResult Function(_Transfering value)? transfering,
     TResult Function(_TransferingError value)? transferingError,
     TResult Function(_TransferingSuccess value)? transferingSuccess,
+    TResult Function(_DataReceived value)? dataReceived,
     required TResult orElse(),
   }) {
     if (transfering != null) {
@@ -2624,14 +2778,18 @@ class _$TransferingErrorImpl implements _TransferingError {
     required TResult Function(bool permission) bluetoothPermissionsSuccess,
     required TResult Function() scanning,
     required TResult Function(String error) scanningError,
-    required TResult Function(List<ScanResult> devices) scanningSuccess,
+    required TResult Function(List<BluetoothDiscoveryResult> devices)
+        scanningSuccess,
     required TResult Function() connecting,
     required TResult Function(String error) connectingError,
-    required TResult Function(BluetoothDevice device) connectingSuccess,
+    required TResult Function(
+            BluetoothDevice device, BluetoothConnection connection)
+        connectingSuccess,
     required TResult Function(BluetoothDevice device) disconnected,
     required TResult Function() transfering,
     required TResult Function(String error) transferingError,
     required TResult Function(String message) transferingSuccess,
+    required TResult Function(Uint8List data) dataReceived,
   }) {
     return transferingError(error);
   }
@@ -2645,14 +2803,16 @@ class _$TransferingErrorImpl implements _TransferingError {
     TResult? Function(bool permission)? bluetoothPermissionsSuccess,
     TResult? Function()? scanning,
     TResult? Function(String error)? scanningError,
-    TResult? Function(List<ScanResult> devices)? scanningSuccess,
+    TResult? Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult? Function()? connecting,
     TResult? Function(String error)? connectingError,
-    TResult? Function(BluetoothDevice device)? connectingSuccess,
+    TResult? Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult? Function(BluetoothDevice device)? disconnected,
     TResult? Function()? transfering,
     TResult? Function(String error)? transferingError,
     TResult? Function(String message)? transferingSuccess,
+    TResult? Function(Uint8List data)? dataReceived,
   }) {
     return transferingError?.call(error);
   }
@@ -2666,14 +2826,16 @@ class _$TransferingErrorImpl implements _TransferingError {
     TResult Function(bool permission)? bluetoothPermissionsSuccess,
     TResult Function()? scanning,
     TResult Function(String error)? scanningError,
-    TResult Function(List<ScanResult> devices)? scanningSuccess,
+    TResult Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult Function()? connecting,
     TResult Function(String error)? connectingError,
-    TResult Function(BluetoothDevice device)? connectingSuccess,
+    TResult Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult Function(BluetoothDevice device)? disconnected,
     TResult Function()? transfering,
     TResult Function(String error)? transferingError,
     TResult Function(String message)? transferingSuccess,
+    TResult Function(Uint8List data)? dataReceived,
     required TResult orElse(),
   }) {
     if (transferingError != null) {
@@ -2701,6 +2863,7 @@ class _$TransferingErrorImpl implements _TransferingError {
     required TResult Function(_Transfering value) transfering,
     required TResult Function(_TransferingError value) transferingError,
     required TResult Function(_TransferingSuccess value) transferingSuccess,
+    required TResult Function(_DataReceived value) dataReceived,
   }) {
     return transferingError(this);
   }
@@ -2724,6 +2887,7 @@ class _$TransferingErrorImpl implements _TransferingError {
     TResult? Function(_Transfering value)? transfering,
     TResult? Function(_TransferingError value)? transferingError,
     TResult? Function(_TransferingSuccess value)? transferingSuccess,
+    TResult? Function(_DataReceived value)? dataReceived,
   }) {
     return transferingError?.call(this);
   }
@@ -2747,6 +2911,7 @@ class _$TransferingErrorImpl implements _TransferingError {
     TResult Function(_Transfering value)? transfering,
     TResult Function(_TransferingError value)? transferingError,
     TResult Function(_TransferingSuccess value)? transferingSuccess,
+    TResult Function(_DataReceived value)? dataReceived,
     required TResult orElse(),
   }) {
     if (transferingError != null) {
@@ -2836,14 +3001,18 @@ class _$TransferingSuccessImpl implements _TransferingSuccess {
     required TResult Function(bool permission) bluetoothPermissionsSuccess,
     required TResult Function() scanning,
     required TResult Function(String error) scanningError,
-    required TResult Function(List<ScanResult> devices) scanningSuccess,
+    required TResult Function(List<BluetoothDiscoveryResult> devices)
+        scanningSuccess,
     required TResult Function() connecting,
     required TResult Function(String error) connectingError,
-    required TResult Function(BluetoothDevice device) connectingSuccess,
+    required TResult Function(
+            BluetoothDevice device, BluetoothConnection connection)
+        connectingSuccess,
     required TResult Function(BluetoothDevice device) disconnected,
     required TResult Function() transfering,
     required TResult Function(String error) transferingError,
     required TResult Function(String message) transferingSuccess,
+    required TResult Function(Uint8List data) dataReceived,
   }) {
     return transferingSuccess(message);
   }
@@ -2857,14 +3026,16 @@ class _$TransferingSuccessImpl implements _TransferingSuccess {
     TResult? Function(bool permission)? bluetoothPermissionsSuccess,
     TResult? Function()? scanning,
     TResult? Function(String error)? scanningError,
-    TResult? Function(List<ScanResult> devices)? scanningSuccess,
+    TResult? Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult? Function()? connecting,
     TResult? Function(String error)? connectingError,
-    TResult? Function(BluetoothDevice device)? connectingSuccess,
+    TResult? Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult? Function(BluetoothDevice device)? disconnected,
     TResult? Function()? transfering,
     TResult? Function(String error)? transferingError,
     TResult? Function(String message)? transferingSuccess,
+    TResult? Function(Uint8List data)? dataReceived,
   }) {
     return transferingSuccess?.call(message);
   }
@@ -2878,14 +3049,16 @@ class _$TransferingSuccessImpl implements _TransferingSuccess {
     TResult Function(bool permission)? bluetoothPermissionsSuccess,
     TResult Function()? scanning,
     TResult Function(String error)? scanningError,
-    TResult Function(List<ScanResult> devices)? scanningSuccess,
+    TResult Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
     TResult Function()? connecting,
     TResult Function(String error)? connectingError,
-    TResult Function(BluetoothDevice device)? connectingSuccess,
+    TResult Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
     TResult Function(BluetoothDevice device)? disconnected,
     TResult Function()? transfering,
     TResult Function(String error)? transferingError,
     TResult Function(String message)? transferingSuccess,
+    TResult Function(Uint8List data)? dataReceived,
     required TResult orElse(),
   }) {
     if (transferingSuccess != null) {
@@ -2913,6 +3086,7 @@ class _$TransferingSuccessImpl implements _TransferingSuccess {
     required TResult Function(_Transfering value) transfering,
     required TResult Function(_TransferingError value) transferingError,
     required TResult Function(_TransferingSuccess value) transferingSuccess,
+    required TResult Function(_DataReceived value) dataReceived,
   }) {
     return transferingSuccess(this);
   }
@@ -2936,6 +3110,7 @@ class _$TransferingSuccessImpl implements _TransferingSuccess {
     TResult? Function(_Transfering value)? transfering,
     TResult? Function(_TransferingError value)? transferingError,
     TResult? Function(_TransferingSuccess value)? transferingSuccess,
+    TResult? Function(_DataReceived value)? dataReceived,
   }) {
     return transferingSuccess?.call(this);
   }
@@ -2959,6 +3134,7 @@ class _$TransferingSuccessImpl implements _TransferingSuccess {
     TResult Function(_Transfering value)? transfering,
     TResult Function(_TransferingError value)? transferingError,
     TResult Function(_TransferingSuccess value)? transferingSuccess,
+    TResult Function(_DataReceived value)? dataReceived,
     required TResult orElse(),
   }) {
     if (transferingSuccess != null) {
@@ -2975,5 +3151,228 @@ abstract class _TransferingSuccess implements SerialState {
   String get message;
   @JsonKey(ignore: true)
   _$$TransferingSuccessImplCopyWith<_$TransferingSuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DataReceivedImplCopyWith<$Res> {
+  factory _$$DataReceivedImplCopyWith(
+          _$DataReceivedImpl value, $Res Function(_$DataReceivedImpl) then) =
+      __$$DataReceivedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Uint8List data});
+}
+
+/// @nodoc
+class __$$DataReceivedImplCopyWithImpl<$Res>
+    extends _$SerialStateCopyWithImpl<$Res, _$DataReceivedImpl>
+    implements _$$DataReceivedImplCopyWith<$Res> {
+  __$$DataReceivedImplCopyWithImpl(
+      _$DataReceivedImpl _value, $Res Function(_$DataReceivedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$DataReceivedImpl(
+      null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Uint8List,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DataReceivedImpl implements _DataReceived {
+  const _$DataReceivedImpl(this.data);
+
+  @override
+  final Uint8List data;
+
+  @override
+  String toString() {
+    return 'SerialState.dataReceived(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DataReceivedImpl &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DataReceivedImplCopyWith<_$DataReceivedImpl> get copyWith =>
+      __$$DataReceivedImplCopyWithImpl<_$DataReceivedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() bluetoothPermissions,
+    required TResult Function(String error) bluetoothPermissionsError,
+    required TResult Function(bool permission) bluetoothPermissionsSuccess,
+    required TResult Function() scanning,
+    required TResult Function(String error) scanningError,
+    required TResult Function(List<BluetoothDiscoveryResult> devices)
+        scanningSuccess,
+    required TResult Function() connecting,
+    required TResult Function(String error) connectingError,
+    required TResult Function(
+            BluetoothDevice device, BluetoothConnection connection)
+        connectingSuccess,
+    required TResult Function(BluetoothDevice device) disconnected,
+    required TResult Function() transfering,
+    required TResult Function(String error) transferingError,
+    required TResult Function(String message) transferingSuccess,
+    required TResult Function(Uint8List data) dataReceived,
+  }) {
+    return dataReceived(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? bluetoothPermissions,
+    TResult? Function(String error)? bluetoothPermissionsError,
+    TResult? Function(bool permission)? bluetoothPermissionsSuccess,
+    TResult? Function()? scanning,
+    TResult? Function(String error)? scanningError,
+    TResult? Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
+    TResult? Function()? connecting,
+    TResult? Function(String error)? connectingError,
+    TResult? Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
+    TResult? Function(BluetoothDevice device)? disconnected,
+    TResult? Function()? transfering,
+    TResult? Function(String error)? transferingError,
+    TResult? Function(String message)? transferingSuccess,
+    TResult? Function(Uint8List data)? dataReceived,
+  }) {
+    return dataReceived?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? bluetoothPermissions,
+    TResult Function(String error)? bluetoothPermissionsError,
+    TResult Function(bool permission)? bluetoothPermissionsSuccess,
+    TResult Function()? scanning,
+    TResult Function(String error)? scanningError,
+    TResult Function(List<BluetoothDiscoveryResult> devices)? scanningSuccess,
+    TResult Function()? connecting,
+    TResult Function(String error)? connectingError,
+    TResult Function(BluetoothDevice device, BluetoothConnection connection)?
+        connectingSuccess,
+    TResult Function(BluetoothDevice device)? disconnected,
+    TResult Function()? transfering,
+    TResult Function(String error)? transferingError,
+    TResult Function(String message)? transferingSuccess,
+    TResult Function(Uint8List data)? dataReceived,
+    required TResult orElse(),
+  }) {
+    if (dataReceived != null) {
+      return dataReceived(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_BluetoothPermissions value) bluetoothPermissions,
+    required TResult Function(_BluetoothPermissionsError value)
+        bluetoothPermissionsError,
+    required TResult Function(_BluetoothPermissionsSuccess value)
+        bluetoothPermissionsSuccess,
+    required TResult Function(_Scanning value) scanning,
+    required TResult Function(_ScanningError value) scanningError,
+    required TResult Function(_ScanningSuccess value) scanningSuccess,
+    required TResult Function(_Connecting value) connecting,
+    required TResult Function(_ConnectingError value) connectingError,
+    required TResult Function(_ConnectingSuccess value) connectingSuccess,
+    required TResult Function(_Disconnected value) disconnected,
+    required TResult Function(_Transfering value) transfering,
+    required TResult Function(_TransferingError value) transferingError,
+    required TResult Function(_TransferingSuccess value) transferingSuccess,
+    required TResult Function(_DataReceived value) dataReceived,
+  }) {
+    return dataReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_BluetoothPermissions value)? bluetoothPermissions,
+    TResult? Function(_BluetoothPermissionsError value)?
+        bluetoothPermissionsError,
+    TResult? Function(_BluetoothPermissionsSuccess value)?
+        bluetoothPermissionsSuccess,
+    TResult? Function(_Scanning value)? scanning,
+    TResult? Function(_ScanningError value)? scanningError,
+    TResult? Function(_ScanningSuccess value)? scanningSuccess,
+    TResult? Function(_Connecting value)? connecting,
+    TResult? Function(_ConnectingError value)? connectingError,
+    TResult? Function(_ConnectingSuccess value)? connectingSuccess,
+    TResult? Function(_Disconnected value)? disconnected,
+    TResult? Function(_Transfering value)? transfering,
+    TResult? Function(_TransferingError value)? transferingError,
+    TResult? Function(_TransferingSuccess value)? transferingSuccess,
+    TResult? Function(_DataReceived value)? dataReceived,
+  }) {
+    return dataReceived?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_BluetoothPermissions value)? bluetoothPermissions,
+    TResult Function(_BluetoothPermissionsError value)?
+        bluetoothPermissionsError,
+    TResult Function(_BluetoothPermissionsSuccess value)?
+        bluetoothPermissionsSuccess,
+    TResult Function(_Scanning value)? scanning,
+    TResult Function(_ScanningError value)? scanningError,
+    TResult Function(_ScanningSuccess value)? scanningSuccess,
+    TResult Function(_Connecting value)? connecting,
+    TResult Function(_ConnectingError value)? connectingError,
+    TResult Function(_ConnectingSuccess value)? connectingSuccess,
+    TResult Function(_Disconnected value)? disconnected,
+    TResult Function(_Transfering value)? transfering,
+    TResult Function(_TransferingError value)? transferingError,
+    TResult Function(_TransferingSuccess value)? transferingSuccess,
+    TResult Function(_DataReceived value)? dataReceived,
+    required TResult orElse(),
+  }) {
+    if (dataReceived != null) {
+      return dataReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DataReceived implements SerialState {
+  const factory _DataReceived(final Uint8List data) = _$DataReceivedImpl;
+
+  Uint8List get data;
+  @JsonKey(ignore: true)
+  _$$DataReceivedImplCopyWith<_$DataReceivedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

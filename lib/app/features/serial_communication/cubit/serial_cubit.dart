@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_blue_plus/flutter_blue_plus.dart';
+import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -10,27 +10,14 @@ part 'serial_cubit.freezed.dart';
 part 'serial_state.dart';
 
 class SerialCubit extends Cubit<SerialState> {
-  late StreamSubscription<BluetoothAdapterState> subscription;
+  late FlutterBluetoothSerial _bluetoothSerial; // Access plugin instance
 
   SerialCubit() : super(const SerialState.initial()) {
-    subscription = FlutterBluePlus.adapterState
-        .listen((state) => _onAdapterStateChange(state));
+    _bluetoothSerial = FlutterBluetoothSerial.instance;
   }
 
-  void _onAdapterStateChange(BluetoothAdapterState state) {
-    if (state == BluetoothAdapterState.turningOn) {
-      emit(const SerialState.bluetoothPermissions());
-    } else if (state == BluetoothAdapterState.turningOn) {
-      emit(const SerialState.bluetoothPermissions());
-    } else if (BluetoothAdapterState.on == state) {
-      emit(const SerialState.bluetoothPermissionsSuccess(true));
-    } else if (state == BluetoothAdapterState.turningOff ||
-        state == BluetoothAdapterState.turningOff ||
-        state == BluetoothAdapterState.unknown) {
-      emit(const SerialState.initial());
-    }
-  }
-
+  BluetoothConnection? connexion;
+  // Bluetooth Permissions (using permission_handler)
 // Bluetooth Permissions (using permission_handler)
   Future<void> requestBluetoothPermissions() async {
     try {
@@ -48,7 +35,7 @@ class SerialCubit extends Cubit<SerialState> {
   // Turn on Bluetooth
   Future<void> turnOnBluetooth() async {
     try {
-      await FlutterBluePlus.turnOn();
+      await _bluetoothSerial.requestEnable(); // Use plugin's method
       emit(const SerialState.bluetoothPermissions());
     } catch (error) {
       emit(SerialState.bluetoothPermissionsError(error.toString()));
@@ -59,25 +46,20 @@ class SerialCubit extends Cubit<SerialState> {
   Future<void> scanForDevices() async {
     emit(const SerialState.scanning());
     try {
-      await FlutterBluePlus.turnOn();
-      await FlutterBluePlus.startScan(
-        continuousUpdates: true,
-        androidScanMode: AndroidScanMode.balanced,
-        timeout: const Duration(seconds: 10),
-      );
-      final devices = FlutterBluePlus.onScanResults;
-      devices.listen(
-        (results) {
-          emit(SerialState.scanningSuccess(results));
-        },
-        cancelOnError: true,
-        onError: (error) {
-          emit(SerialState.scanningError(error.toString()));
-        },
-        onDone: () {
-          emit(const SerialState.scanningError("Scanning timeout"));
-        },
-      );
+      final results = List<BluetoothDiscoveryResult>.empty(growable: true);
+      _bluetoothSerial.startDiscovery(); // Use plugin's method
+      // Handle discovered devices using onDeviceDiscovered stream
+      _bluetoothSerial.startDiscovery().listen((result) {
+        final existingIndex = results.indexWhere(
+            (element) => element.device.address == result.device.address);
+        if (existingIndex >= 0) {
+          results[existingIndex] = result;
+        } else {
+          results.add(result);
+          emit(SerialState.scanningSuccess(results.toSet().toList()));
+        }
+      });
+      // ... handle timeout or errors as needed ...
     } catch (error) {
       emit(SerialState.scanningError(error.toString()));
     }
@@ -87,36 +69,41 @@ class SerialCubit extends Cubit<SerialState> {
   Future<void> connectToDevice(BluetoothDevice device) async {
     emit(const SerialState.connecting());
     try {
-      await device.connect();
-      emit(SerialState.connectingSuccess(device));
+      final connection = await BluetoothConnection.toAddress(device.address);
+      connexion = connection;
+      emit(SerialState.connectingSuccess(device, connection));
     } catch (error) {
       emit(SerialState.connectingError(error.toString()));
     }
   }
 
-  // Disconnect from Device
-  Future<void> disconnectFromDevice() async {
-    final connectedDevice = state.maybeWhen(
-      connectingSuccess: (device) => device,
-      orElse: () => null,
-    );
-    if (connectedDevice != null) {
-      await connectedDevice.disconnect();
-      emit(SerialState.disconnected(connectedDevice));
+  Future<void> listenToIncomingData(BluetoothConnection device) async {
+    try {
+      device.input!.listen(
+        (data) {
+          // Data has been received from Bluetooth
+          emit(SerialState.dataReceived(data));
+        },
+        onError: (ex) {
+          emit(SerialState.transferingError(ex.toString()));
+        },
+        onDone: () {
+          print("All bytes received");
+        },
+      );
+    } catch (ex) {
+      emit(SerialState.transferingError(ex.toString()));
     }
   }
 
-  // Transfer Data (Implementation depends on specific device)
-  Future<void> transferData(String message) async {
-    // Implement data transfer logic based on device services and characteristics
-    emit(const SerialState.transfering());
-    // ... data transfer logic ...
-    emit(SerialState.transferingSuccess(message));
-  }
-
-  @override
-  Future<void> close() async {
-    subscription.cancel();
-    await super.close();
+  // Send Data
+  Future<void> sendData(BluetoothConnection connexion, Uint8List data) async {
+    try {
+      emit(const SerialState.transfering());
+      connexion.output.add(data);
+      emit(const SerialState.transferingSuccess("Data sent"));
+    } catch (error) {
+      emit(SerialState.transferingError(error.toString()));
+    }
   }
 }
