@@ -16,7 +16,7 @@ ThemeData _getTheme(Brightness brightness) => ThemeData(
         primaryKey: const Color(0xFFDA015F),
         secondary: const Color(0xFF1B2121),
         tertiary: const Color(0xFFEEFCE3),
-        background: const Color(0xFFEBEBEB),
+        background: const Color(0xFF1B2121),
         tones: FlexTones.vivid(brightness),
       ),
     );

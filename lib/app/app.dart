@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_blue_plus/flutter_blue_plus.dart';
+import 'package:serial_arduino/app/features/serial_communication/cubit/serial_cubit.dart';
 import 'package:serial_arduino/app/router/router.dart';
 import 'package:serial_arduino/app/theme.dart';
 
@@ -7,12 +10,36 @@ class SerialArduino extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      theme: AppTheme.light,
-      darkTheme: AppTheme.dark,
-      routeInformationParser: router.routeInformationParser,
-      routerDelegate: router.routerDelegate,
-      title: 'Serial Arduino',
+    // if your terminal doesn't support color you'll see annoying logs like `\x1B[1;35m`
+    FlutterBluePlus.setLogLevel(LogLevel.verbose, color: true);
+
+    return AppBlocs(
+      child: MaterialApp.router(
+        routerConfig: router,
+        theme: AppTheme.light,
+        darkTheme: AppTheme.dark,
+        themeMode: ThemeMode.dark,
+        // routeInformationParser: router.routeInformationParser,
+        // routerDelegate: router.routerDelegate,
+        title: 'Serial Arduino',
+      ),
+    );
+  }
+}
+
+class AppBlocs extends StatelessWidget {
+  final Widget child;
+  const AppBlocs({super.key, required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<SerialCubit>(
+          create: (context) => SerialCubit(),
+        ),
+      ],
+      child: child,
     );
   }
 }

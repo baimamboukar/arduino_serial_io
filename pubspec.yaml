@@ -1,32 +1,36 @@
 name: serial_arduino
-description: "A sample app to experiment serial and bluethooth communication with arduino"
+description: "A sample app to experiment with serial communication with Arduino"  # Added closing quotation mark
 version: 1.0.0+1
 
 environment:
   sdk: '>=3.3.0 <4.0.0'
+
 dependencies:
   flutter:
     sdk: flutter
 
-
   cupertino_icons: ^1.0.6
-  flutter_reactive_ble: ^5.3.1
+  #flutter_reactive_ble: ^5.3.1
   flutter_blue_plus: ^1.31.17
   go_router: ^13.2.1
   flex_seed_scheme: ^1.4.0
+  flutter_bloc: ^8.1.4
+  freezed: ^2.4.7
+  freezed_annotation: ^2.4.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
+  build_runner: ^2.4.8
+
 flutter:
 
   uses-material-design: true
-
   assets:
-    - assets
+    - assets/
     - assets/fonts/
-    
+  
   fonts:
     - family: Gilroy
       fonts:
